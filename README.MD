@@ -16,7 +16,7 @@
 DAO模式
 > 体现每一层上的设计结果，包括界面，控制，业务，DAO
 + [ ] 界面设计  
-仿照 [学校网站](jwgl.cuit.edu.cn)([webVPN](jwgl-cuit-edu-cn.webvpn.cuit.edu.cn:8118/eams/home.action))
+仿照 [学校网站](jwgl.cuit.edu.cn)/[webVPN](jwgl-cuit-edu-cn.webvpn.cuit.edu.cn:8118/eams/home.action)
 + [ ] 数据库
 > ER图、表结构设计、约束设计与实现
 + [ ] 编码
