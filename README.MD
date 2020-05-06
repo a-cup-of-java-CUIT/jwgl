@@ -13,7 +13,10 @@
 **需建立文档**
 > 简要的需求分析，根据小组讨论理解的结果来统一到不超出5个的核心功能上完成需求描述
 + [ ] 系统概要设计  
-DAO模式
+DAO模式  
+一些图示(building，完成后会建立文档)：
+[系统架构](https://www.processon.com/view/link/5ea95b697d9c0869dab149b2)
+[类](https://www.processon.com/view/link/5eb22543f346fb06e445c11b)
 > 体现每一层上的设计结果，包括界面，控制，业务，DAO
 + [ ] 界面设计  
 仿照 [学校网站](http://jwgl.cuit.edu.cn)/[webVPN](http://jwgl-cuit-edu-cn.webvpn.cuit.edu.cn:8118/eams/home.action)
