@@ -2,6 +2,11 @@
 全部文档集中在 [Documents](github.com/a-cup-of-java-CUIT/jwgl/tree/master/Documents)  
 **需向其中添加各类文档**
 
+## 编译/运行环境
++ JDK 8
++ Tomcat 9
++ MySQL 8
+
 # 我们要做的
 **教务系统**
 ***
