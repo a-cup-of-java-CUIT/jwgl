@@ -24,6 +24,11 @@ DAO模式
 [类](https://www.processon.com/view/link/5eb22543f346fb06e445c11b)
 [登录流程图](https://www.processon.com/view/link/5e13f097e4b07ae2d01cb1b8)
 [我的课表/我的成绩流程图](https://www.processon.com/view/link/5eba942ff346fb6907ee4533)
+
+*设计分工*  
+JSP 袁乐 杜洁  
+service 王苏宁  
+DAO 张祥意 屈睿  
 > 体现每一层上的设计结果，包括界面，控制，业务，DAO
 + [ ] 界面设计  
 仿照 [学校网站](http://jwgl.cuit.edu.cn)/[webVPN](http://jwgl-cuit-edu-cn.webvpn.cuit.edu.cn:8118/eams/home.action)
