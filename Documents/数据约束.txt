@@ -1,0 +1,20 @@
+在bean&Entities中限定，其他组件可在必要处添加
+数据约束
+stuID		String	length=10
+password	String	length>5
+code		String	length=6 	CS006A 检查字母数字位置
+lessonID	String	length=13/16	CS006A.191002 SP003A-04.191002 检查字母数字位置
+name		String	length>0
+type		String	length>0
+credit		float	0.5~4.5		小数仅.5
+regular		int		0~100
+finalExam	同上
+total		同上
+GP			float	0~5			一位小数
+classID		String	length>0
+teacher		String	length 0~4
+place		String	length>0
+weekday		int		1~7
+startTime	1~11
+endTime		同上
+
