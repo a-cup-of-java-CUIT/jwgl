@@ -3,7 +3,6 @@ package jwgl.bean;
 public class Student {
     private String stuID;
     private String password;
-    private boolean login;
     private String classID;
 
     public String getStuID() {
@@ -22,14 +21,6 @@ public class Student {
     public void setPassword(String password) {
         if (password.length() > 5)
             this.password = password;
-    }
-
-    public boolean isLogin() {
-        return login;
-    }
-
-    public void setLogin(boolean login) {
-        this.login = login;
     }
 
     public String getClassID() {
