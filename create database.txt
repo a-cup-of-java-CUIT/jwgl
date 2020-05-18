@@ -1,0 +1,23 @@
+create database jwgl;
+use jwgl;
+create table Timetable
+(
+Ccode char(8),
+Cname varchar(25),
+credit float,
+lessonID varchar(20) primary key,
+classID varchar(20) ,
+teacher varchar(10)
+)
+
+use jwgl;
+create table LessonTime
+(
+lessonID varchar(20),
+place varchar(6),
+weekday int,    /*1-7*/
+startTime int,
+endTime int,
+starWeek int,
+endWeek int
+)
