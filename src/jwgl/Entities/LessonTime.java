@@ -5,6 +5,8 @@ public class LessonTime {
     private int weekday;
     private int startTime;
     private int endTime;
+    private int startWeek;
+    private int endWeek;
 
     public String getPlace() {
         return place;
@@ -40,5 +42,23 @@ public class LessonTime {
     public void setEndTime(int endTime) {
         if (endTime >= 1 && endTime <= 11)
             this.endTime = endTime;
+    }
+
+    public int getStartWeek() {
+        return startWeek;
+    }
+
+    public void setStartWeek(int startWeek) {
+        if (startWeek >= 1 && startWeek <= 18)
+            this.startWeek = startWeek;
+    }
+
+    public int getEndWeek() {
+        return endWeek;
+    }
+
+    public void setEndWeek(int endWeek) {
+        if (startWeek >= 1 && startWeek <= 18)
+            this.endWeek = endWeek;
     }
 }

@@ -17,4 +17,5 @@ place		String	length>0
 weekday		int		1~7
 startTime	1~11
 endTime		同上
-
+startWeek   1~18
+endWeek     1~18
