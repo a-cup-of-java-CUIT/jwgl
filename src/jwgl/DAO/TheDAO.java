@@ -35,7 +35,7 @@ public class TheDAO {
         return classID;
     }
 
-    public static ArrayList<Timetable> queryTimetableStudent(String stuID, String term) {
+    public static ArrayList<Timetable> queryTimetableStudent(String stuID, int term) {
         ArrayList<Timetable> timetables = null;
         
         Connection conn = null;
@@ -49,7 +49,7 @@ public class TheDAO {
 			
 			stmt = conn.prepareStatement(sql);
 			
-			stmt.setString(1,  term);
+			stmt.setInt(1,  term);
 			stmt.setString(2,  stuID);
 			rs = stmt.executeQuery();
 			
@@ -78,16 +78,17 @@ public class TheDAO {
         return timetables;
     }
 
-    public static ArrayList<Timetable> queryTimetableClass(String classID, String term) {
+    public static ArrayList<Timetable> queryTimetableClass(String classID, int term) {
         ArrayList<Timetable> timetables = null;
         return timetables;
     }
 
-    public static ArrayList<Score> queryScore(String stuID, String term) {
+    public static ArrayList<Score> queryScore(String stuID, int term) {
         ArrayList<Score> scores = null;
         return scores;
     }
     
+    /*以下是私有方法*/
     /*从LessonTime表中查询课程信息*/
     private static ArrayList<LessonTime> queryLessonTime(String lessonID) {
     	ArrayList<LessonTime> lessonTimes = null;
@@ -129,7 +130,7 @@ public class TheDAO {
     
     /*以下是连接池*/
     private static String DRIVERCLASS = "com.mysql.cj.jdbc.Driver";
-	private static String URL = "jdbc:mysql://localhost:3306/jwgl?serverTimezone=UTC";//注意对应你自己的database名
+	private static String URL = "jdbc:mysql://localhost:3306/jwgl?serverTimezone=UTC";
 	private static final String USER = "root";
 	private static final String PASSWORD = "123456";
 	
