@@ -49,7 +49,7 @@ public class LessonTime {
     }
 
     public void setStartWeek(int startWeek) {
-        if (startWeek >= 1 && startWeek <= 18)
+        if (startWeek >= 1 && startWeek <= 20)
             this.startWeek = startWeek;
     }
 
@@ -58,7 +58,7 @@ public class LessonTime {
     }
 
     public void setEndWeek(int endWeek) {
-        if (startWeek >= 1 && startWeek <= 18)
+        if (startWeek >= 1 && startWeek <= 20)
             this.endWeek = endWeek;
     }
 }
