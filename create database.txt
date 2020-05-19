@@ -11,6 +11,7 @@ classID varchar(25)           #班级
 
 create table Timetable      #班级课程表
 (
+term int,                           #学期1-8
 code char(6),                     #课程代码 length=6
 name varchar(25),             #课程名
 credit float,                       #学分
