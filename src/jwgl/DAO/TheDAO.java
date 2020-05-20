@@ -212,7 +212,7 @@ public class TheDAO {
 		try {
 			Class.forName(DRIVERCLASS);
 		} catch(ClassNotFoundException e) {
-			System.out.println("鍔犺浇椹卞姩澶辫触");
+			System.out.println("加载驱动失败");
 			e.printStackTrace();
 		}
 	}
