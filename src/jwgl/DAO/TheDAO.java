@@ -80,11 +80,84 @@ public class TheDAO {
 
     public static ArrayList<Timetable> queryTimetableClass(String classID, int term) {
         ArrayList<Timetable> timetables = null;
+        
+        Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			String sql = "SELECT * FROM Timetable WHERE classID=?";
+			
+			stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1,  classID);
+			rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				timetables = new ArrayList<Timetable>();
+				rs.previous();
+			}
+			
+			while(rs.next()) {
+				Timetable lt = new Timetable();
+				
+				lt.setCode(rs.getString("code"));
+				lt.setName(rs.getString("name"));
+				lt.setCredit(rs.getFloat("credit"));
+				lt.setLessonID(rs.getString("lessonID"));
+				lt.setClassID(rs.getString("classID"));
+				lt.setTeacher(rs.getString("teacher"));
+				
+				timetables.add(lt);
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
         return timetables;
     }
 
     public static ArrayList<Score> queryScore(String stuID, int term) {
         ArrayList<Score> scores = null;
+        
+        Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			String sql = "SELECT * FROM Score WHERE stuID=?";
+			
+			stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1,  stuID);
+			rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				scores = new ArrayList<Score>();
+				rs.previous();
+			}
+			
+			while(rs.next()) {
+				Score lt = new Score();
+				
+				lt.setCode(rs.getString("code"));
+				lt.setLessonID(rs.getString("lessonID"));
+				lt.setName(rs.getString("name"));
+				lt.setType(rs.getString("type"));
+				lt.setCredit(rs.getFloat("credit"));
+				lt.setRegular(rs.getInt("regular"));
+				lt.setFinalExam(rs.getInt("finalExam"));			
+				lt.setTotal(rs.getInt("total"));
+				lt.setGP(rs.getFloat("GP"));
+				
+				scores.add(lt);
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
         return scores;
     }
     
@@ -139,7 +212,7 @@ public class TheDAO {
 		try {
 			Class.forName(DRIVERCLASS);
 		} catch(ClassNotFoundException e) {
-			System.out.println("加载驱动失败");
+			System.out.println("鍔犺浇椹卞姩澶辫触");
 			e.printStackTrace();
 		}
 	}
