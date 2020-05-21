@@ -12,7 +12,7 @@ enum tableTypeEnum {
 }
 
 public class serve {
-    public static ArrayList<Timetable> getTimetable(tableTypeEnum tableType, int week, int term, Student student) {
+    public static ArrayList<Timetable> getTimetable(tableTypeEnum tableType, int term, Student student) {
         ArrayList<Timetable> timetables;
 
         switch (tableType) {
