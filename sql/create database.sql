@@ -33,7 +33,7 @@ endWeek int                      #结束周
 
 create table Score        #成绩表
 (
-stuID char(10)               #学生学号
+stuID char(10),              #学生学号
 code char(6),                #课程代码
 lessonID varchar(16),    #课程序号 length=13/16
 name varchar(6),          #课程名
