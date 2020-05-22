@@ -23,7 +23,7 @@ teacher varchar(6)             #教师
 create table LessonTime     #课程信息 
 (
 lessonID varchar(16),            #课程序号 length=13/16
-place char(5),                      #地点
+place varchar(5),                   #地点
 weekday int,                        #星期几 1~7
 startTime int,                      #开始节 1~11
 endTime int,                       #结束节 1~11
