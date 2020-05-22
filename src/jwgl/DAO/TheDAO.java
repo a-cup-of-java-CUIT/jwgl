@@ -202,9 +202,9 @@ public class TheDAO {
     }
     
     /*以下是连接池*/
-    private static String DRIVERCLASS = "com.mysql.cj.jdbc.Driver";
-	private static String URL = "jdbc:mysql://localhost:3306/jwgl?serverTimezone=UTC";
-	private static final String USER = "root";
+    private static String DRIVERCLASS = "com.mysql.jdbc.Driver";
+	private static String URL = "jdbc:mysql://34.92.202.246/jwgl";
+	private static final String USER = "user";
 	private static final String PASSWORD = "123456";
 	
 	//加载驱动
