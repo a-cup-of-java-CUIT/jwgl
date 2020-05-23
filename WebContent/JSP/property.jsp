@@ -32,7 +32,7 @@
 		if (Authentic.login(login)){//
 			session.setAttribute("stuID", login.getStuID());
 			session.setAttribute("password", login.getPassword());			
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("Main-menu.jsp");
 		}
 		else
 		{
