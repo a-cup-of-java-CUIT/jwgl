@@ -4,9 +4,9 @@
 	import="jwgl.service.*"
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="jwgl.Entities.Timetable" %>
+<%@ page import="jwgl.Entities.*" %>
 
-<jsp:useBean id="student" class="jwgl.bean.Student" scope="session"></jsp:useBean>
+<jsp:useBean id="login" class="jwgl.bean.Student" scope="session"></jsp:useBean>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -349,286 +349,152 @@
                     <span class="toolbar-icon action-info"></span>
                     <strong>我的课表</strong>
                 </div>
-            </div>
+                <div class="course-table">
+                    <div class="table-select">
+                        <strong>课表类型：</strong>
+                        <select name="type">
+                            <option value="stu">学生课表</option>
+                            <option value="tea">教师课表</option>
+                        </select>
+                        <strong>| </strong>
+                        <strong>选择教学周：</strong>
+                        <select name="week">
+                            <option value="0">全部</option>
+                            <option value="1">第一周</option>
+                            <option value="2">第二周</option>
+                        </select>
+                        <strong>| </strong>
+                        <strong>学年学期：</strong>
+                        <select name="semester">
+                            <option value="2019-2020-1">2019-2020学年第1学期</option>
+                        </select>
+                        <strong>| </strong>
+                        <input type="button" style="color: red" value="点击切换学期">
+                    </div>
+                    <div class="table-content">
+                        <div style="color: red;width: 1290px">点击上方"课表类型"可切换查看不同类型课表</div>
+                        <div class="print-bar">
+                            <div>
+                                <span class="toolbar-icon action-default"></span>
+                                <div style="float: right">我的课表</div>
+                            </div>
+                        </div>
+                        <div class="table">
+                            <table id="course">
+                                <tr class="course-tit">
+                                    <td style="width: 90px">节次/周次</td>
+                                    <td>星期一</td>
+                                    <td>星期二</td>
+                                    <td>星期三</td>
+                                    <td>星期四</td>
+                                    <td>星期五</td>
+                                    <td>星期六</td>
+                                    <td>星期日</td>
+                                </tr>
+                                <%
+                                    ArrayList<Timetable> tList=serve.getTimetable(tableTypeEnum.STUDENT_TABLE,1,login);
 
-            <div class="course-table">
-                <div class="table-select">
-                    <strong>课表类型：</strong>
-                    <select name="type">
-                        <option value="stu">学生课表</option>
-                        <option value="tea">教师课表</option>
-                    </select>
-                    <strong>| </strong>
-                    <strong>选择教学周：</strong>
-                    <select name="week">
-                        <option value="0">全部</option>
-                        <option value="1">第一周</option>
-                        <option value="2">第二周</option>
-                    </select>
-                    <strong>| </strong>
-                    <strong>学年学期：</strong>
-                    <select name="semester">
-                        <option value="2019-2020-1">2019-2020学年第1学期</option>
-                    </select>
-                    <strong>| </strong>
-                    <input type="button" style="color: red" value="点击切换学期">
-                </div>
-            </div>
-            <div class="table-content">
-                <div style="color: red;width: 1290px">点击上方"课表类型"可切换查看不同类型课表</div>
-                <div class="print-bar">
-                    <div>
-                        <span class="toolbar-icon action-default"></span>
-                        <div style="float: right">我的课表</div>
+                                    Timetable[][] courseTable = new Timetable[11][7];
+                                    int[][] span = new int[11][7];
+                                    int[][] sWeek = new int[11][7];
+                                    int[][] eWeek = new int[11][7];
+                                    String[][] places = new String[11][7];
+                                    Timetable fake = new Timetable();
+                                    
+                                    for (Timetable t : tList) {
+                                        ArrayList<LessonTime> times = t.getTime();
+                                        if (times == null)
+                                            continue;
+                                        for (LessonTime lesson : times) {
+                                            int w = lesson.getWeekday();
+                                            int s = lesson.getStartTime();
+                                            int e = lesson.getEndTime();
+                                            courseTable[s - 1][w - 1] = t;
+                                            span[s - 1][w - 1] = e - s + 1;
+                                            sWeek[s - 1][w - 1] = lesson.getStartWeek();
+                                            eWeek[s - 1][w - 1] = lesson.getEndWeek();
+                                            places[s - 1][w - 1] = lesson.getPlace();
+                                            for (int i = s; i < e; i++) {
+                                                courseTable[i][w - 1] = fake;
+                                            }
+                                        }
+                                    }
+
+                                    for (int i = 0; i < 11; i++) {
+                                        String cla=new String();
+                                        if (i < 4)
+                                            cla="mor";
+                                        else if (i < 8)
+                                            cla="aft";
+                                        else
+                                            cla="eve";
+                                %>
+                                        <tr>
+                                            <td class="<%= cla %>">第<%= i + 1 %>节</td>
+                                            <%
+                                            for (int j = 0; j < 7; j++) {
+                                                Timetable cur = courseTable[i][j];
+                                                if (cur == null) {
+                                            %>
+                                                    <td></td>
+                                                <%
+                                                }
+                                                else if (cur != fake) {
+                                                %>
+                                                <td class="c" rowspan="<%= span[i][j] %>">
+                                                    <%= cur.getName() %><br>
+                                                    教师：<%= cur.getTeacher() %><br>
+                                                    周次：<%= sWeek[i][j] %>-<%= eWeek[i][j] %>周<br>
+                                                    教室：<%= places[i][j] %><br>
+                                                </td>
+                                            <%
+                                                }
+                                            }
+                                            %>
+                                        </tr>
+                                <%
+                                    }
+                                    System.out.println("HIT!Last");
+                                %>
+                            </table>
+                        </div>
+
+                        <div class="list">
+                            <strong style="padding-left: 610px">课程列表:</strong>
+                            <table class="c-list">
+                                <tr class="course-tit">
+                                    <td>序号</td>
+                                    <td>课程代码</td>
+                                    <td>课程名称</td>
+                                    <td>学分</td>
+                                    <td>课程序号</td>
+                                    <td>教学班</td>
+                                    <td>教师</td>
+                                    <td>操作</td>
+                                </tr>
+                                <%
+                                    int count=1;
+                                    for (Timetable timetable : tList) {
+                                %>
+                                <tr>
+                                    <td><%= count %></td>
+                                    <td><%= timetable.getCode() %></td>
+                                    <td><%= timetable.getName() %></td>
+                                    <td><%= timetable.getCredit() %></td>
+                                    <td><%= timetable.getLessonID() %></td>
+                                    <td><%= timetable.getClassID() %></td>
+                                    <td><%= timetable.getTeacher() %></td>
+                                </tr>
+                                <%
+                                        count++;
+                                    }
+                                %>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <div class="table">
-                    <table id="course">
-                        <tr class="course-tit">
-                            <td style="width: 90px">节次/周次</td>
-                            <td>星期一</td>
-                            <td>星期二</td>
-                            <td>星期三</td>
-                            <td>星期四</td>
-                            <td>星期五</td>
-                            <td>星期六</td>
-                            <td>星期日</td>
-                        </tr>
-                        <tr>
-                            <td class="mor">第一节</td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td></td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="mor">第二节</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="mor">第三节</td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="mor">第四节</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="aft">第五节</td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td></td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="aft">第六节</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="aft">第七节</td>
-                            <td></td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td></td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td class="c" rowspan="2">
-                                xxxxx<br>
-                                教师：xx<br>
-                                周次： x-x周<br>
-                                教室：xxxx
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="aft">第八节</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="eve">第九节</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="eve">第十节</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="eve">第十一节</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-
-<jsp:setProperty name="student" property="stuID" value="2018122020" />
-<jsp:setProperty name="student" property="password" value="123456" />
-<jsp:setProperty name="student" property="classID" value="计科181" />
-<%
-	ArrayList<Timetable> tList=serve.getTimetable(tableTypeEnum.STUDENT_TABLE,1,student);
-	
-	//Timetable t1 = new Timetable();
-	//Timetable t2 = new Timetable();
-	//t1.setClassID("全校");
-    //t1.setCode("AM050A");
-    //t1.setCredit(2);
-    //t1.setLessonID("AM050A.191001");
-    //t1.setName("工程伦理");
-    //t1.setTeacher("沈艳");
-    //tList.add(t1);
-    //t2.setClassID("计算机181");
-    //t2.setCode("CS003A");
-    //t2.setCredit(3.5f);
-    //t2.setLessonID("CS003A.191002");
-    //t2.setName("数据库原理及应用A");
-    //t2.setTeacher("杨昊");
-	
-    //Timetable t = new Timetable();
-    //t=ser.getTimetable(tableType, week, term, student)
-	
-	//tList.add(t);
-%>
-
-                <div class="list">
-                    <strong style="padding-left: 610px">课程列表:</strong>
-                    <table class="c-list">
-                        <tr class="course-tit">
-                            <td>序号</td>
-                            <td>课程代码</td>
-                            <td>课程名称</td>
-                            <td>学分</td>
-                            <td>课程序号</td>
-                            <td>教学班</td>
-                            <td>教师</td>
-                            <td>操作</td>
-                        </tr>
-<%
-int count=1;
-for (Timetable timetable : tList) {
-
-%>
-                        <tr>
-                            <td><%= count %></td>
-                            <td><%= timetable.getCode() %></td>
-                            <td><%= timetable.getName() %></td>
-                            <td><%= timetable.getCredit() %></td>
-                            <td><%= timetable.getLessonID() %></td>
-                            <td><%= timetable.getClassID() %></td>
-                            <td><%= timetable.getTeacher() %></td>
-                        </tr>
-<%
-                    count++;
-}
-%>
-                    </table>
-                </div>
             </div>
+
         </div>
     </div>
 </body>
