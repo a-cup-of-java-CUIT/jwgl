@@ -1,11 +1,11 @@
 <%@ page language="java" 
 	import="java.util.*" 
-	import="bean.Student"
-	import="service.serve"
+	import="jwgl.bean.Student"
+	import="jwgl.service.serve"
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="Entities.Timetable" %>
- <jsp:useBean id="login" class="DAO.TheDAO" scope="session"></jsp:useBean>
+<%@ page import="jwgl.Entities.Timetable" %>
+ <jsp:useBean id="login" class="jwgl.DAO.TheDAO" scope="session"></jsp:useBean>
 
 <%
 	if((session.isNew()))

@@ -7,10 +7,6 @@ import jwgl.Entities.Score;
 import jwgl.Entities.Timetable;
 import jwgl.bean.Student;
 
-enum tableTypeEnum {
-    STUDENT_TABLE, CLASS_TABLE
-}
-
 public class serve {
     public static ArrayList<Timetable> getTimetable(tableTypeEnum tableType, int term, Student student) {
         ArrayList<Timetable> timetables;

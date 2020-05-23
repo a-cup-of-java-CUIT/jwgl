@@ -1,12 +1,12 @@
 <%@ page language="java" 
 	import="java.util.*" 
-	import="bean.Student"
-	import="service.serve"
+	import="jwgl.bean.Student"
+	import="jwgl.service.*"
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="Entities.Timetable" %>
+<%@ page import="jwgl.Entities.Timetable" %>
 
-<jsp:useBean id="student" class=bean.Student scope="session"></jsp:useBean>
+<jsp:useBean id="student" class="jwgl.bean.Student" scope="session"></jsp:useBean>
 
 <!DOCTYPE html>
 <html lang="en" >
@@ -533,10 +533,12 @@
                     </tr>
                 </table>
             </div>
-        
+
+<jsp:setProperty name="student" property="stuID" value="2018122020" />
+<jsp:setProperty name="student" property="password" value="123456" />
+<jsp:setProperty name="student" property="classID" value="计科181" />
 <%
-	serve ser=new serve();
-	ArrayList<Timetable> tList=new ArrayList<Timetable>();
+	ArrayList<Timetable> tList=serve.getTimetable(tableTypeEnum.STUDENT_TABLE,1,student);
 
 	
 	//Timetable t1 = new Timetable();
@@ -576,12 +578,12 @@
                         <td>操作</td>
                     </tr>
 <%
-
+int count=1;
 for (Timetable timetable : tList) {
 
 %>              
                     <tr>
-                    	<td></td>
+                    	<td><%= count %></td>
                         <td><%= timetable.getCode() %></td>
 					    <td><%= timetable.getName() %></td>
 					    <td><%= timetable.getCredit() %></td>
@@ -590,6 +592,7 @@ for (Timetable timetable : tList) {
 					    <td><%= timetable.getTeacher() %></td>
                     </tr>
 <%
+                    count++;
 }
 %>                    
                 </table>
