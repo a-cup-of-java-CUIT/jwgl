@@ -191,6 +191,8 @@ public class TheDAO {
 				lt.setWeekday(rs.getInt("weekday"));
 				lt.setStartTime(rs.getInt("startTime"));
 				lt.setEndTime(rs.getInt("endTime"));
+				lt.setStartWeek(rs.getInt("startWeek"));
+				lt.setEndWeek(rs.getInt("endWeek"));
 				
 				lessonTimes.add(lt);
 			} 
