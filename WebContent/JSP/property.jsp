@@ -12,33 +12,38 @@
 <title>用户登录验证</title>
 </head>
 <body>
-	<%
-		String messsage="", stuID="", password="";
-		if (!(session.isNew())){
-			stuID=request.getParameter("stuID");
-			if (stuID == null){
-				stuID="";
-			}
-			password=request.getParameter("password");
-			if (password == null){
-				password="";
-			}
-		}
-		if (Authentic.login(login)){
-			session.setAttribute("stuID", stuID);
-			session.setAttribute("password", password);			
+<%
+		//设置统一编码，解决中文乱码
+		request.setCharacterEncoding("utf-8");
+		//获取login.jsp中的学号
+		//String stuI=request.getParameter("stuID");	
+		//获取login.jsp中的密码
+		//String psw=request.getParameter("password");
+		
+		login.setStuID(request.getParameter("stuID"));
+		login.setPassword(request.getParameter("password"));
+		
+%>
+	
+		<%=login.getStuID()%>
+		<%=login.getPassword()%>
+
+<%
+		if (Authentic.login(login)){//
+			session.setAttribute("stuID", login.getStuID());
+			session.setAttribute("password", login.getPassword());			
 			response.sendRedirect("login.jsp");
 		}
 		else
 		{
-		%>
+%>
 		<p>密码错误，请重新登录！</p>
 		<p>5秒后返回登录页面</p>
-		<%
+<%
 			session.invalidate();
 			response.setHeader("refresh", "5;url=login.jsp");//跳转到登录页面
 
 		}
-	%>
+%>
 </body>
 </html>
