@@ -27,7 +27,7 @@ place varchar(5),                   #地点
 weekday int,                        #星期几 1~7
 startTime int,                      #开始节 1~11
 endTime int,                       #结束节 1~11
-starWeek int,                      #开始周
+startWeek int,                      #开始周
 endWeek int                      #结束周
 );
 
