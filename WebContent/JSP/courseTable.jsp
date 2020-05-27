@@ -247,6 +247,12 @@
             margin-top: 40px;
             margin-bottom: 40px;
         }
+        .pictr{
+        	 background:url(Images/b.png);
+        	 background-repeat:no-repeat;
+        	 height:35px;
+        	 width:300px;
+        }
     </style>
 
 </head>
@@ -254,11 +260,11 @@
 <body>
     <header>
         <div class="banner">
-            <img src="../Images/1.png" height=60px />
+             <div class="pictr box">&nbsp</div>
 
             <div class="box">
                 <div class="id-buttom">
-                    <a href=""><img src="../Images/b.png" width=250px /></a>
+                    <div></div>
                 </div>
 
                 <div class="id">
