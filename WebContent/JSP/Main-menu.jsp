@@ -8,9 +8,9 @@
 <jsp:useBean id="login" class="jwgl.bean.Student" scope="session"></jsp:useBean>
 
 <%
-	if((session.isNew()))
-	{
+	if(login.getClassID() == null) {
 		response.sendRedirect("login.jsp");
+		return;
 	}
 %>
 

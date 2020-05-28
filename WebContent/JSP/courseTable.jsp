@@ -8,6 +8,13 @@
 
 <jsp:useBean id="login" class="jwgl.bean.Student" scope="session"></jsp:useBean>
 
+<%
+	if(login.getClassID() == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
