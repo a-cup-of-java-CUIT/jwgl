@@ -31,7 +31,7 @@
 		.banner {
 			background-color: #e0ecff;
 			height: 60px;
-			background-image: url(head.jpg);
+			background-image: url(../images/head.jpg);
 			background-repeat: repeat-x;
 		}
 
@@ -260,13 +260,13 @@
 <body>
 	<header>
 		<div class="banner">
-			<img src="logo.png" height=60px>
+			<img src="../images/logo.png" height="60px">
 			<div class="box">
 				<div class="id-buttom">
-					<a href=""><img src="b.png" width=250px></a>
+					<img src="../images/b.png" width="250px">
 				</div>
 				<div class="id">
-					<a href="" style="color: white;text-decoration: none;">XXX(XXXXXXXXXX)</a>
+					<a href="" style="color: white;text-decoration: none;"><jsp:getProperty name="login" property="stuID" /></a>
 					<span style="padding:0 2px;color:#FFF;font-weight:bold;">学生</span>
 				</div>
 				<div class="color-box">
@@ -313,27 +313,10 @@
 			</script>
 
 			<div id="nav">
-				<div class="menu-head-active">我的</div>
-				<ul class="menu" style="display: block">
-					<li onclick="onCurrent(this);">学籍信息</li>
-					<li onclick="onCurrent(this);">培养计划</li>
-					<li onclick="onCurrent(this);">选课</li>
-					<li id="first" class="nav-li-current" onclick="onCurrent(this);"><a href="courseTable.jsp">我的课表</a></li>
-					<li onclick="onCurrent(this);">我的考试</li>
+				<ul class="menu" style="display: block;width: 177px;">
+					<li id="first" class="nav-li-current" onclick="onCurrent(this);"><a href="courseTable.jsp">我的课表</a>
+					</li>
 					<li onclick="onCurrent(this);">我的成绩</li>
-					<li onclick="onCurrent(this);">计划完成情况</li>
-					<li onclick="onCurrent(this);">转专业申请</li>
-					<li onclick="onCurrent(this);">免修申请</li>
-					<li onclick="onCurrent(this);">重修缴费查询</li>
-				</ul>
-				<div class="menu-head">量化评教</div>
-				<ul class="menu">
-					<li onclick="onCurrent(this);">学生学情调查</li>
-					<li onclick="onCurrent(this);">量化评教</li>
-				</ul>
-				<div class="menu-head">公共服务</div>
-				<ul class="menu">
-					<li onclick="onCurrent(this);">公共课表查询</li>
 				</ul>
 				<script>
 					var preObj = document.getElementById("first");
