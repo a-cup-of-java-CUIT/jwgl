@@ -76,7 +76,7 @@
         }
 
         .left {
-
+            width: 100%;
             display: flex;
             -webkit-justify-content: space-between;
             justify-content: space-between;
@@ -86,6 +86,11 @@
 
         .nav {
             font-size: 15px;
+            width: 10%;
+        }
+
+        .right-top {
+            width: 90%;
         }
 
         .menu-head {
@@ -143,24 +148,13 @@
             margin: 0 2px 0 2px;
         }
 
-        .right {
-            display: -webkit-flex;
-            display: flex;
-            -webkit-justify-content: space-between;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding-left: 10px;
-            width: 1290px;
-        }
-
         .toolbar-title {
-            float: left;
             border-bottom: 1px solid #c9c9c9;
             width: 1290px;
         }
 
         .toolbar-icon {
-            background-image: url(actions.png);
+            background-image: url(../images/actions.png);
             display: inline-block;
             vertical-align: bottom !important;
             margin: 2px 2px 0 0;
@@ -187,7 +181,6 @@
             font-weight: bold;
             height: 28px;
             padding: 2px 0 2px 0;
-            width: 1290px;
         }
 
         .table-content {
@@ -201,8 +194,8 @@
 
         table {
             border-collapse: collapse;
-            width: 1290px;
             text-align: center;
+            width: 100%;
         }
 
         .course-tit td {
@@ -321,8 +314,8 @@
                 }
             </script>
 
-            <div id="nav">
-                <ul class="menu" style="display: block;width: 177px;">
+            <div class="nav" id="nav">
+                <ul class="menu" style="display: block">
                     <li id="first" class="nav-li-current" onclick="onCurrent(this);">我的课表</li>
                     <li onclick="onCurrent(this);">我的成绩</li>
                 </ul>
@@ -348,14 +341,7 @@
                         <strong>课表类型：</strong>
                         <select name="type">
                             <option value="stu">学生课表</option>
-                            <option value="tea">教师课表</option>
-                        </select>
-                        <strong>| </strong>
-                        <strong>选择教学周：</strong>
-                        <select name="week">
-                            <option value="0">全部</option>
-                            <option value="1">第一周</option>
-                            <option value="2">第二周</option>
+                            <option value="tea">班级课表</option>
                         </select>
                         <strong>| </strong>
                         <strong>学年学期：</strong>
@@ -369,8 +355,8 @@
                         <div style="color: red;width: 1290px">点击上方"课表类型"可切换查看不同类型课表</div>
                         <div class="print-bar">
                             <div>
+                                <div style="float: right">打印</div>
                                 <span class="toolbar-icon action-default"></span>
-                                <div style="float: right">我的课表</div>
                             </div>
                         </div>
                         <div class="table">
@@ -464,7 +450,6 @@
                                     <td>课程序号</td>
                                     <td>教学班</td>
                                     <td>教师</td>
-                                    <td>操作</td>
                                 </tr>
                                 <%
                                     int count=1;
