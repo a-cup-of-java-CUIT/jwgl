@@ -19,7 +19,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>我的课表</title>
+	<title>教务管理</title>
 
 	<style>
 		body {
