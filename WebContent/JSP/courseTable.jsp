@@ -253,6 +253,10 @@
         	 height:35px;
         	 width:300px;
         }
+
+        a {
+			text-decoration: none;
+		}
     </style>
 
 </head>
@@ -316,8 +320,8 @@
 
             <div class="nav" id="nav">
                 <ul class="menu" style="display: block">
-                    <li id="first" class="nav-li-current" onclick="onCurrent(this);">我的课表</li>
-                    <li onclick="onCurrent(this);">我的成绩</li>
+                    <a href="courseTable.jsp"><li id="first" class="nav-li-current" onclick="onCurrent(this);">我的课表</li></a>
+					<a href="MyGrades.jsp"><li onclick="onCurrent(this);">我的成绩</li></a>
                 </ul>
                 <script>
                     var preObj = document.getElementById("first");
@@ -434,7 +438,6 @@
                                         </tr>
                                 <%
                                     }
-                                    System.out.println("HIT!Last");
                                 %>
                             </table>
                         </div>

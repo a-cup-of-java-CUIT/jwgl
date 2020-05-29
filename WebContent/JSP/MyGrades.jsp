@@ -260,6 +260,10 @@
             text-align: center;
             letter-spacing: 0;
         }
+
+        a {
+			text-decoration: none;
+		}
     </style>
 
 </head>
@@ -323,8 +327,8 @@
 
         <div class="nav" id="nav">
             <ul class="menu" style="display: block">
-                <li id="first" class="nav-li-current" onclick="onCurrent(this);">我的课表</li>
-                <li onclick="onCurrent(this);">我的成绩</li>
+                <a href="courseTable.jsp"><li id="first" class="nav-li-current" onclick="onCurrent(this);">我的课表</li></a>
+				<a href="MyGrades.jsp"><li onclick="onCurrent(this);">我的成绩</li></a>
             </ul>
             <script>
                 var preObj = document.getElementById("first");
@@ -375,6 +379,7 @@
 
                     <div class="list" style="margin-top: 0;">
 							<% ArrayList<Score> sList=serve.getScore(login,1); %>
+							<% System.out.println("HIT!1"); %>
                         <table class="c-list" >
                             <thead class="gridhead">
 
@@ -392,6 +397,9 @@
                                 <td   >最终</td>
                                 <td  >绩点</td>
                             </tr>
+                            <% System.out.println("HIT!2"); %>
+                            <% System.out.println(sList); %>
+                            <% System.out.println(sList.size()); %>
 							<%
 								for(Score score : sList) {	
 							%>

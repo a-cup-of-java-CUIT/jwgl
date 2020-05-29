@@ -253,6 +253,10 @@
 			margin-top: 40px;
 			margin-bottom: 40px;
 		}
+
+		a {
+			text-decoration: none;
+		}
 	</style>
 
 </head>
@@ -314,9 +318,8 @@
 
 			<div id="nav">
 				<ul class="menu" style="display: block;width: 177px;">
-					<li id="first" class="nav-li-current" onclick="onCurrent(this);"><a href="courseTable.jsp">我的课表</a>
-					</li>
-					<li onclick="onCurrent(this);">我的成绩</li>
+					<a href="courseTable.jsp"><li id="first" class="nav-li-current" onclick="onCurrent(this);">我的课表</li></a>
+					<a href="MyGrades.jsp"><li onclick="onCurrent(this);">我的成绩</li></a>
 				</ul>
 				<script>
 					var preObj = document.getElementById("first");
