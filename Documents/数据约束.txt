@@ -3,7 +3,7 @@
 stuID		String	length=10
 password	String	length>5
 code		String	length=6 	CS006A 检查字母数字位置
-lessonID	String	length=13/16	CS006A.191002 SP003A-04.191002 检查字母数字位置
+lessonID	String	length=13~16
 name		String	length>0
 type		String	length>0
 credit		float	0.5~4.5		小数仅.5

@@ -45,25 +45,8 @@ public class Timetable {
     }
 
     public void setLessonID(String lessonID) {
-        if (lessonID.length() == 13) {
-            if (Character.isAlphabetic(lessonID.charAt(0)) && Character.isAlphabetic(lessonID.charAt(1))
-                    && Character.isDigit(lessonID.charAt(2)) && Character.isDigit(lessonID.charAt(3))
-                    && Character.isDigit(lessonID.charAt(4)) && Character.isAlphabetic(lessonID.charAt(5))
-                    && lessonID.charAt(6) == '.' && Character.isDigit(lessonID.charAt(7))
-                    && Character.isDigit(lessonID.charAt(8)) && Character.isDigit(lessonID.charAt(9))
-                    && Character.isDigit(lessonID.charAt(10)) && Character.isDigit(lessonID.charAt(11))
-                    && Character.isDigit(lessonID.charAt(12)))
-                this.lessonID = lessonID;
-        } else if (lessonID.length() == 16)
-            if (Character.isAlphabetic(lessonID.charAt(0)) && Character.isAlphabetic(lessonID.charAt(1))
-                    && Character.isDigit(lessonID.charAt(2)) && Character.isDigit(lessonID.charAt(3))
-                    && Character.isDigit(lessonID.charAt(4)) && Character.isAlphabetic(lessonID.charAt(5))
-                    && lessonID.charAt(6) == '-' && Character.isDigit(lessonID.charAt(7))
-                    && Character.isDigit(lessonID.charAt(8)) && lessonID.charAt(9) == '.'
-                    && Character.isDigit(lessonID.charAt(10)) && Character.isDigit(lessonID.charAt(11))
-                    && Character.isDigit(lessonID.charAt(12)) && Character.isDigit(lessonID.charAt(13))
-                    && Character.isDigit(lessonID.charAt(14)) && Character.isDigit(lessonID.charAt(15)))
-                this.lessonID = lessonID;
+        if (lessonID.length() > 13 && lessonID.length() < 16)
+            this.lessonID = lessonID;
     }
 
     public String getClassID() {

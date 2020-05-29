@@ -27,25 +27,8 @@ public class Score {
     }
 
     public void setLessonID(String lessonID) {
-        if (lessonID.length() == 13) {
-            if (Character.isAlphabetic(lessonID.charAt(0)) && Character.isAlphabetic(lessonID.charAt(1))
-                    && Character.isDigit(lessonID.charAt(2)) && Character.isDigit(lessonID.charAt(3))
-                    && Character.isDigit(lessonID.charAt(4)) && Character.isAlphabetic(lessonID.charAt(5))
-                    && lessonID.charAt(6) == '.' && Character.isDigit(lessonID.charAt(7))
-                    && Character.isDigit(lessonID.charAt(8)) && Character.isDigit(lessonID.charAt(9))
-                    && Character.isDigit(lessonID.charAt(10)) && Character.isDigit(lessonID.charAt(11))
-                    && Character.isDigit(lessonID.charAt(12)))
-                this.lessonID = lessonID;
-        } else if (lessonID.length() == 16)
-            if (Character.isAlphabetic(lessonID.charAt(0)) && Character.isAlphabetic(lessonID.charAt(1))
-                    && Character.isDigit(lessonID.charAt(2)) && Character.isDigit(lessonID.charAt(3))
-                    && Character.isDigit(lessonID.charAt(4)) && Character.isAlphabetic(lessonID.charAt(5))
-                    && lessonID.charAt(6) == '-' && Character.isDigit(lessonID.charAt(7))
-                    && Character.isDigit(lessonID.charAt(8)) && lessonID.charAt(9) == '.'
-                    && Character.isDigit(lessonID.charAt(10)) && Character.isDigit(lessonID.charAt(11))
-                    && Character.isDigit(lessonID.charAt(12)) && Character.isDigit(lessonID.charAt(13))
-                    && Character.isDigit(lessonID.charAt(14)) && Character.isDigit(lessonID.charAt(15)))
-                this.lessonID = lessonID;
+        if (lessonID.length() > 13 && lessonID.length() < 16)
+            this.lessonID = lessonID;
     }
 
     public String getName() {
@@ -90,7 +73,7 @@ public class Score {
 
     public void setFinalExam(int finalExam) {
         if (finalExam >= 0 && finalExam <= 100)
-        this.finalExam = finalExam;
+            this.finalExam = finalExam;
     }
 
     public int getTotal() {
@@ -99,7 +82,7 @@ public class Score {
 
     public void setTotal(int total) {
         if (total >= 0 && total <= 100)
-        this.total = total;
+            this.total = total;
     }
 
     public float getGP() {
@@ -108,6 +91,6 @@ public class Score {
 
     public void setGP(float gP) {
         if (gP >= 0 && gP <= 5)
-        GP = gP;
+            GP = gP;
     }
 }
