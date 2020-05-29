@@ -270,7 +270,7 @@
 					<img src="../images/b.png" width="250px">
 				</div>
 				<div class="id">
-					<a href="" style="color: white;text-decoration: none;"><jsp:getProperty name="login" property="stuID" /></a>
+					<span style="color: white;"></a><jsp:getProperty name="login" property="stuID" /></span>
 					<span style="padding:0 2px;color:#FFF;font-weight:bold;">学生</span>
 				</div>
 				<div class="color-box">

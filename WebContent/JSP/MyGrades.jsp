@@ -278,7 +278,7 @@
             </div>
 
             <div class="id">
-                <a href="" style="color: white;text-decoration: none;"></a>
+                <span style="color: white;"></a><jsp:getProperty name="login" property="stuID" /></span>
                 <span style="padding:0 2px;color:#FFF;font-weight:bold;">学生</span>
             </div>
 
@@ -379,7 +379,6 @@
 
                     <div class="list" style="margin-top: 0;">
 							<% ArrayList<Score> sList=serve.getScore(login,1); %>
-							<% System.out.println("HIT!1"); %>
                         <table class="c-list" >
                             <thead class="gridhead">
 
@@ -397,9 +396,6 @@
                                 <td   >最终</td>
                                 <td  >绩点</td>
                             </tr>
-                            <% System.out.println("HIT!2"); %>
-                            <% System.out.println(sList); %>
-                            <% System.out.println(sList.size()); %>
 							<%
 								for(Score score : sList) {	
 							%>
