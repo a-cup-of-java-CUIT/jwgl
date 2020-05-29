@@ -45,7 +45,7 @@ public class Timetable {
     }
 
     public void setLessonID(String lessonID) {
-        if (lessonID.length() > 13 && lessonID.length() < 16)
+        if (lessonID.length() >= 6 && lessonID.length() <= 16)
             this.lessonID = lessonID;
     }
 
