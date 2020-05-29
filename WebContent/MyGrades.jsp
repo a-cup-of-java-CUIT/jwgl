@@ -33,7 +33,7 @@
         .banner {
             background-color: #e0ecff;
             height: 60px;
-            background-image: url(../images/head.jpg);
+            background-image: url(images/head.jpg);
             background-repeat: repeat-x;
         }
 
@@ -155,7 +155,7 @@
         }
 
         .toolbar-icon {
-            background-image: url(../images/actions.png);
+            background-image: url(images/actions.png);
             display: inline-block;
             vertical-align: bottom !important;
             margin: 2px 2px 0 0;
@@ -248,12 +248,6 @@
             margin-top: 40px;
             margin-bottom: 40px;
         }
-        .pictr{
-            background:url(Images/b.png);
-            background-repeat:no-repeat;
-            height:35px;
-            width:300px;
-        }
         .gridhead{
             color: #000000;
             text-decoration: none;
@@ -271,10 +265,10 @@
 <body>
 <header>
     <div class="banner">
-        <img src="../images/logo.png" height="60px">
+        <img src="images/logo.png" height="60px">
         <div class="box">
             <div class="id-buttom">
-                <img src="../images/b.png" width="250px">
+                <img src="images/b.png" width="250px">
             </div>
 
             <div class="id">
@@ -327,8 +321,8 @@
 
         <div class="nav" id="nav">
             <ul class="menu" style="display: block">
-                <a href="courseTable.jsp"><li id="first" class="nav-li-current" onclick="onCurrent(this);">我的课表</li></a>
-				<a href="MyGrades.jsp"><li onclick="onCurrent(this);">我的成绩</li></a>
+                <a href="courseTable.jsp"><li id="first" onclick="onCurrent(this);">我的课表</li></a>
+				<a href="MyGrades.jsp"><li class="nav-li-current" onclick="onCurrent(this);">我的成绩</li></a>
             </ul>
             <script>
                 var preObj = document.getElementById("first");

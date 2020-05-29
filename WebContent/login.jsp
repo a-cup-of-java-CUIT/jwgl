@@ -72,7 +72,7 @@
 		position:relative; 
 		height:565px; 
 		overflow:hidden;
-		background: url(../images/background.jpg) rgba(0, 0, 0, 0) center 0 no-repeat; background-size: cover; right:0; left:0; overflow: hidden;}
+		background: url(images/background.jpg) rgba(0, 0, 0, 0) center 0 no-repeat; background-size: cover; right:0; left:0; overflow: hidden;}
 		/*---------------login--------------*/
 		.login-aside{
 		position:absolute; 
@@ -121,10 +121,10 @@
 		text-indent:1em;
 		}
 		#stuID{ 
-		background:url(../images/user_icon.png) no-repeat left #fff; 
+		background:url(images/user_icon.png) no-repeat left #fff; 
 		text-indent:2em;
 		}
-		#password{ background:url(../images/password_icon.png) no-repeat left #fff; 
+		#password{ background:url(images/password_icon.png) no-repeat left #fff; 
 		text-indent:2em;
 		}
 		.yzm{ 
@@ -184,7 +184,7 @@
 <body>
 <!-----header---->
     <div class="header">
-        <h1 class="headerLogo"><img src="../images/logocuitv2.jpg" class="logo" /></h1>
+        <h1 class="headerLogo"><img src="images/logocuitv2.jpg" class="logo" /></h1>
     </div>
 <!-----banner---->
     <div class="banner">
@@ -202,7 +202,7 @@
   
                     <div class="fm-item yzm">
 	                      <input type="text" placeholder="输入验证码"  id="yzm" >    
-                        <div class="yzm-img left"><img src="../images/yzm.jpg" /></div>
+                        <div class="yzm-img left"><img src="images/yzm.jpg" /></div>
                     </div>
   	                <div class="clearfix"></div>
                     <div class="fm-item remember">

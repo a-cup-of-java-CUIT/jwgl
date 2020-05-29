@@ -32,7 +32,7 @@
         .banner {
             background-color: #e0ecff;
             height: 60px;
-            background-image: url(../images/head.jpg);
+            background-image: url(images/head.jpg);
             background-repeat: repeat-x;
         }
 
@@ -154,7 +154,7 @@
         }
 
         .toolbar-icon {
-            background-image: url(../images/actions.png);
+            background-image: url(images/actions.png);
             display: inline-block;
             vertical-align: bottom !important;
             margin: 2px 2px 0 0;
@@ -247,12 +247,6 @@
             margin-top: 40px;
             margin-bottom: 40px;
         }
-        .pictr{
-        	 background:url(Images/b.png);
-        	 background-repeat:no-repeat;
-        	 height:35px;
-        	 width:300px;
-        }
 
         a {
 			text-decoration: none;
@@ -264,10 +258,10 @@
 <body>
     <header>
         <div class="banner">
-            <img src="../images/logo.png" height="60px">
+            <img src="images/logo.png" height="60px">
             <div class="box">
                 <div class="id-buttom">
-                    <img src="../images/b.png" width="250px">
+                    <img src="images/b.png" width="250px">
                 </div>
 
                 <div class="id">

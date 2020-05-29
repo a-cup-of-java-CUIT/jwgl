@@ -31,7 +31,7 @@
 		.banner {
 			background-color: #e0ecff;
 			height: 60px;
-			background-image: url(../images/head.jpg);
+			background-image: url(images/head.jpg);
 			background-repeat: repeat-x;
 		}
 
@@ -264,10 +264,10 @@
 <body>
 	<header>
 		<div class="banner">
-			<img src="../images/logo.png" height="60px">
+			<img src="images/logo.png" height="60px">
 			<div class="box">
 				<div class="id-buttom">
-					<img src="../images/b.png" width="250px">
+					<img src="images/b.png" width="250px">
 				</div>
 				<div class="id">
 					<span style="color: white;"></a><jsp:getProperty name="login" property="stuID" /></span>
